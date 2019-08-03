@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="github.css" rel="stylesheet" type="text/css">
+<title>공창컴</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({messageStyle: "none", tex2jax: {preview: "none"}});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+<body>
+
+<main class="page-content" aria-label="Content">
+    <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <header class="post-header">
+                <h1 class="post-title p-name" itemprop="name headline">공창컴</h1>
+                <p class="post-meta"><time class="dt-published" datetime="2018-12-13T00:00:00+00:00" itemprop="datePublished">Dec 13, 2018</time></p>
+            </header>
+
+<div class="post-content e-content" itemprop="articleBody">
+    <h4>📄목차</h4>
+    <ul>
+        <li><a href="#Function">함수</a></li>
+        <li><a href="#String">문자열</a></li>
+        <li><a href="#List">리스트</a></li>
+        <li><a href="#Debug">디버그</a></li>
+        <li><a href="#Bayesian">Bayesian Approach</a></li>
+        <li><a href="#Perceptron">⭐Perceptron</a></li>
+        <li><a href="#Etc">기타</a></li>
+        <li><a href="#Sources">Sources</a>
+            <ul>
+                <li><a href="#Birthday">Birthday Matching</a></li>
+                <li><a href="#Dragon_Realm">Dragon Realm</a></li>
+                <li><a href="#Bear_and_Woodcutter">Bear and Woodcutter</a></li>
+                <li><a href="#Hangman">Hangman</a></li>
+                <li><a href="#Bayesian_Inference">Bayesian Inference</a></li>
+            </ul>
+        </li>
+        <li><a href="#Materials">Materials</a></li>
+    </ul>
+
+    <h3 id="Function">함수</h3>
+    <pre><code data-language="python">>>> def printInfo(name, age=48):
+	print(name, age)
+>>> printInfo('Woojin')
+Woojin 48
+>>> printInfo(age=3018, name='Minsu') # Using keyword arguments
+Minsu 3018</code></pre>
+
+    <ul>
+        <li>전역변수: 함수 <strong>밖</strong>에서 선언되며, 프로그램 어디서든 사용 가능한 변수</li>
+        <li>지역변수: 함수 <strong>안</strong>에서 선언되며, 해당 함수 안에서만 사용 가능한 변수 (함수 종료 시 사라짐)</li>
+    </ul>
+    <p>전역변수와 지역변수는 이름이 같더라도 별개의 변수! <br> 두 개 이상의 지역변수가 이름이 같더라도, 서로 다른 함수 안에 있다면 별개의 변수!</p>
+    <pre><code data-language="python">def localVariable():
+    var = 'Local' # 함수 안
+    print(var)
+
+var = 'Global' # 함수 밖
+print(var)
+localVariable()
+print(var)</code></pre>
+    <pre><code>Global
+Local
+Global</code></pre>
+
+
+    <h3 id="String">문자열</h3>
+    <pre><code data-language="python">>>> print('''This is the
+multi-
+line strings''')
+This is the
+multi-
+line strings
+>>> 'HellO WorlD'.lower()
+'hello world'
+>>> 'HellO WorlD'.upper()
+'HELLO WORLD'
+>>> "a b c d e f".split()
+['a', 'b', 'c', 'd', 'e', 'f']
+>>> print(*'HELLO')
+H E L L O</code></pre>
+    <h3 id="List">리스트</h3>
+    <pre><code data-language="python">>>> a = [0, 1, 2, 3, 4]
+>>> a * 2 # Repeat
+[0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+>>> a + [5, 6, 7] # Concat
+[0, 1, 2, 3, 4, 5, 6, 7]
+>>> a[2:]
+[2, 3, 4]
+>>> a[:2]
+[0, 1]
+>>> a[2:6]
+[2, 3, 4]
+>>> 3 in a
+True
+>>> del a[0]
+>>> a
+[1, 2, 3, 4]</code></pre>
+    <ul>
+        <li><code>.append(5)</code> Add 5 at the end of the list</li>
+        <li><code>.sort()</code> Sort the list in ascending order</li>
+        <li><code>.remove(3)</code> Remove first item with value 3</li>
+        <li><code>.pop()</code> Return the last item and delete it</li>
+        <li><code>.count(2)</code> Count the number of times of 2 in list</li>
+        <li><code>.index(3)</code> Find the index of first 3 in list. Error if not found</li>
+        <li><code>.reverse()</code> Reverse the order of the list</li>
+        <li><code>.extend([5, 6, 7])</code> Add the list</li>
+    </ul>
+
+    <h3 id="Debug">디버그</h3>
+    <p>Debugging: 버그 검출하는 과정<br> IDLE에는 debugger라는 툴이 있음</p>
+    <ul>
+        <li>Go: break point 전까지 계속 진행</li>
+        <li>Step: 한 단계씩 진행. 함수 call이 있다면 함수로 들어감</li>
+        <li>Over: 한 단계식 진행. 함수는 건너뜀</li>
+        <li>Out: 함수에서 빠져나올 때까지 진행</li>
+        <li>Quit: 즉시 종료</li>
+    </ul>
+
+    <h3 id="Bayesian">Bayesian Approach</h3>
+    <p>Bayes' theorem $$ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}, $$ where \(H, E\) stand for any <em>hypothesis</em> and the evidence, respectively.</p>
+    <p>Determining the best classifier with generalized is significant.</p>
+
+    <h3 id="Perceptron">⭐Perceptron</h3>
+    <p>Decision Rule for Linear Classifier $$ d(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b, $$ where \(\mathbf{w}\) is the initial weight vector and \(b\) is the bias.
+    <br>The sign of \(d\) function determines the class \(\omega_k\) for a given feature vector \(\mathbf{x}\).</p>
+    <h4>Perceptron for Linear Regression</h4>
+    <p><strong>Gradient descent</strong> is a first-order iterative optimization algorithm for finding the minimum of a function.
+        To find a local minimum using this, one takes steps proportional to the negative of the gradient
+        of the function at the current point.</strong></p>
+    <ol>
+        <li>Compute Error \( \delta_k = y^k - \mathbf{w} \cdot \mathbf{x}^k \)</li>
+        <li>Update Neural Network weights $$ \mathbf{w}_i \longleftarrow  \mathbf{w}_i + \alpha \delta_k \mathbf{x}_i^k $$</li>
+    </ol>
+    <p><strong>The learning rate \(\alpha\)</strong> <br>
+        \(\alpha\) is too small: May converge slowly and need a lot of training data <br>
+        \(\alpha\) is too large: May change \(\mathbf{w}\) too quickly and spend a long time oscillating around the minimum</p>
+
+    <h3 id="Etc">기타</h3>
+    <p>ASCII Art: 아스키 코드만을 사용한 그림으로 텍스트 아트, 문자그림으로도 불린다.</p>
+    <p>Flowchart: <a href="For-loop-diagram2.png"><img src="For-loop-diagram2.png" width="221px" alt="Flowchart of a C-style for loop"></a></p>
+
+    <h3 id="Sources">Sources</h3>
+
+    <h3 id="Birthday">Birthday Matching</h3>
+    <pre><code data-language="python">import random
+
+print('Hello! My name is Alice.')
+print('What is your name?')
+myName = input()
+
+realDay = random.randint(1, 30)
+print('Well, ' + myName + ', guess my birthday from 1 to 30.')
+
+trial = 0
+
+while True:
+    trial += 1
+    guessDay = int(input())
+
+    if guessDay > realDay:
+        print('Guess a earlier day.')
+    elif guessDay < realDay:
+        print('Guess a later day.')
+    elif guessDay == realDay:
+        print('Good job, ' + myName + '! you guessed my birthday!')
+        break
+
+    if trial == 5:
+        print('Game Over!')
+        break</code></pre>
+
+    <h3 id="Dragon_Realm">Dragon Realm</h3>
+    <pre><code data-language="python">import random, time
+
+def displayIntro():
+    print('You are in a land full of dragons. In front of you.')
+    print('You see two caves. In one cave, the dragon is friendly')
+    print('and will share his treasure with you. The other dragon')
+    print('is greedy and hungry, and will eat you on sight.')
+    print('\n')
+
+def chooseCave():
+    cave = ''
+    while cave != '1' and cave != '2':
+        print('Which cave will you go into? (1 or 2)')
+        cave = input()
+    return cave
+
+def checkCave(chosenCave):
+    print('You approach the cave...')
+    time.sleep(2)
+    print('It is dark and spooky...')
+    time.sleep(2)
+    print('A large dragon jumps out in front of you! He opens his jaws and...')
+    print('\n')
+    time.sleep(2)
+
+    friendlyCave = random.randint(1, 2)
+    if chosenCave == str(friendlyCave):
+        print('Gives you his treasure!')
+    else:
+        print('Gobbles you down in one bite!')
+
+playAgain = 'yes'
+while playAgain == 'yes' or playAgain == 'y':
+    displayIntro()
+    caveNumber = chooseCave()
+    checkCave(caveNumber)
+
+    print('Do you want to play again? (yes or no)')
+    playAgain = input()</code></pre>
+
+    <h3 id="Bear_and_Woodcutter">Bear and Woodcutter</h3>
+    <pre><code data-language="python">import random, time
+
+print("You are a woodcutter.")
+print("Let's cut the tree.")
+
+BearTime = random.randint(1, 10)
+for i in range(1, BearTime+1):
+    print("You cut the tree " + str(i) + " times.")
+
+print("You met a bear!!")
+print("Run away?(1) or Fight?(2)")
+
+YourChoice = input()
+print("You choose '" + str(YourChoice) + "'.")
+
+if YourChoice == "1":
+    print("Run away!!!")
+
+    more3 = 1
+    while more3 <= 3:
+        print("more "*more3 + "faster!")
+        more3 += 1
+
+    SurviveOrNot = random.randint(0, 1)
+    if SurviveOrNot:
+        print("Yeah~ you are safe now! ^^")
+    else:
+        print("You were caught by a bear;;;")
+
+elif YourChoice == "2":
+    print("You must defeat the bear in 6 attacks.\nBear's initial HP is 100.")
+
+    BearHP = 100
+    n = 1
+    while n <= 6:
+        attack = random.randint(1, 30)
+        BearHP -= attack
+        if BearHP < 0: BearHP = 0
+        time.sleep(1)
+        print("You have reduced the bear's health by %d in the %d attack." % (attack, n))
+        print("The remaining bear's health is %d." % BearHP)
+        if BearHP == 0: break
+        n += 1
+
+    if BearHP > 0:
+        print("Defeat! Even now, bear to bear!!")
+    else:
+        print("Victory! You got a bear leather!!")
+else:
+    print("Wrong input!")</code></pre>
+
+    <h3 id="Hangman">Hangman</h3>
+    <pre><code data-language="python">import random
+
+HANGMANPICS = [ . . . ]
+words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow
+deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey
+moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino
+salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle
+weasel whale wolf wombat zebra'''.split()
+
+def getRandomWord(wordList):
+    """Return a random string from the passed list of strings."""
+    wordIndex = random.randint(0, len(wordList)-1)
+    return wordList[wordIndex]
+
+def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
+    print('\nYou have %d chances' % chances)
+    print(HANGMANPICS[len(missedLetters)])
+    print()
+    print('Missed letters:', end=' ')
+    print(*missedLetters)
+
+    blanks = '_' * len(secretWord)
+    # replace blanks with correctly guessed letters
+    for i in range(len(secretWord)):
+        if secretWord[i] in correctLetters:
+            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+
+    # show the secret word with spaces in between each letter
+    print(*blanks)
+
+def getGuess(alreadyGuessed):
+    """Return the letter the player entered.
+    It makes sure the player ented a single letter, and not something else."""
+    while True:
+        print("Guess a letter.")
+        guess = input().lower()
+
+        if len(guess) != 1:
+            print("Please enter a single letter.")
+        # the argument, alreadyGuessed, is used to check if the new guess was entered before.
+        elif guess in alreadyGuessed:
+            print("You have already guessed that letter. Choose again.")
+        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
+            print("Please enter a LETTER.")
+        else:
+            # A return statement ends the execution of the function call and 'returns' the result
+            return guess
+
+def playAgain():
+    """Return whether the player wants to play again."""
+    print('\nDo you want to play again? (yes or no)')
+    return input().lower().startswith('y')
+
+print(*'HANGMAN')
+
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+chances = len(HANGMANPICS) - 1
+gameIsDone = False
+
+while True:
+    displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+
+    # Let the player type in a letter.
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters += guess
+
+        # Check if the player has won
+        foundAllLetters = True
+        for x in secretWord:
+            if x not in correctLetters:
+                foundAllLetters = False
+                # The break statement terminates the loop containing it.
+                break
+        if foundAllLetters:
+            print('Yes! The secret word is "%s"! You have won!' % secretWord)
+            gameIsDone = True
+    else:
+        chances -= 1
+        missedLetters += guess
+
+        # Check if player has guessed too many times and lost
+        if chances == 0:
+            displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+            print('You have run out of guesses!')
+            print('After %d missed guesses and %d correct guesses, the word was "%s"' % (len(missedLetters), len(correctLetters), secretWord))
+            gameIsDone = True
+
+    # Ask the player if they want to play again (but only if the game is done).
+    if gameIsDone:
+        if playAgain():
+            missedLetters = ''
+            correctLetters = ''
+            secretWord = getRandomWord(words)
+            chances = len(HANGMANPICS) - 1
+            gameIsDone = False
+        else:
+            break</code></pre>
+
+    <h3 id="Bayesian_Inference">Bayesian Inference</h3>
+    <pre><code data-language="python">import csv, math, random
+from statistics import *
+
+filename = 'sampleDataset.csv'
+lines = csv.reader(open(filename, 'r')) # read the csv file
+dataset = list(lines)
+
+for i in range(len(dataset)):
+    dataset[i] = [float(x) for x in dataset[i]]
+
+# prepare training dataset and testing dataset
+splitRatio = 0.67 # 2/3 for training and 1/3 for testing
+trainSize = int(len(dataset) * splitRatio)
+trainSet = []
+copy = list(dataset)
+while len(trainSet) < trainSize:
+    index = random.randrange(len(copy))
+    trainSet.append(copy.pop(index))
+    #print(index)
+testSet = copy
+print("Split %d rows into train=%d and test=%d rows" % (len(dataset), len(trainSet), len(testSet)))
+
+# prepare model separated by class
+separated = {}
+for i in range(len(trainSet)):
+    vector = trainSet[i] # Note that the last elem in dataset is the 'label'
+    # create a key and add a blank array to it
+    if vector[-1] not in separated:
+        separated[vector[-1]] = []
+    # store separately datasets corresponding to their access keys
+    separated[vector[-1]].append(vector)
+
+summaries = {}
+for classValue, instances in separated.items():
+    summaries[classValue] = [(mean(attribute), stdev(attribute)) for attribute in zip(*instances)]
+    del summaries[classValue][-1]
+#print(summaries)
+
+# calculate the probability that each label occurs
+probability_label_0 = len(separated[0]) / len(trainSet)
+probability_label_1 = len(separated[1]) / len(trainSet)
+probability_label = [probability_label_0, probability_label_1]
+
+# test model
+def calculateProbability(x, mean, stdev):
+    """Return the probability of P(x | class)"""
+    exponent = math.exp(-(math.pow(x-mean, 2) / (2*math.pow(stdev, 2))))
+    return (1 / (math.sqrt(2*math.pi) * stdev)) * exponent
+
+# to predict the label with datasets
+testSet = [[10, 139, 80, 0, 0, 27.1, 1.441, 57],
+           [10, 115, 70, 10, 100, 40.1, 0.421, 30],
+           [5, 196, 65, 30, 55, 37.1, 0.247, 41],
+           [7, 97, 75, 31, 213, 24.5, 0.845, 37],
+           [6, 109, 76, 0, 52, 43.2, 2.041, 33]]
+predictions = []
+for t in testSet:
+    probabilities = {}
+    for classValue, classSummaries in summaries.items():
+        probabilities[classValue] = 1*probability_label[int(classValue)]
+        for i in range(len(classSummaries)):
+            mean, stdev = classSummaries[i]
+            x = t[i]
+            probabilities[classValue] *= calculateProbability(x, mean, stdev)
+    # predict the label: Decision Rule
+    if probabilities[0] > probabilities[1]:
+        predictions.append(0)
+    else:
+        predictions.append(1)
+
+# calculate the accuracy
+correct = 0
+for i in range(len(testSet)):
+    if testSet[i][-1] == predictions[i]: correct += 1
+accuracy = (correct / float(len(testSet))) * 100.0
+print("Accuracy for testing dataset: %f" % accuracy)
+print(predictions)</code></pre>
+
+    <h3 id="Materials">Materials</h3>
+    <p>Lecture <a href="m/Lecture 7_Python.pdf" target="_blank">7 Dragon realm</a>, <a href="m/Lecture 8_Python.pdf" target="_blank">8</a>, ⭐<a href="m/Lecture 9_Python.pdf" target="_blank">9 Hangman</a>, <a href="m/Lecture 10_Bayesian Approach.pdf" target="_blank">10 Bayesian</a>, <a href="m/Lecture 11_Perceptron.pdf" target="_blank">11 Perceptron</a> (<a href="m/Lecture 11_Regression.xlsx" target="_blank">xlsx</a>)</p>
+    <p>Practice <a href="m/chap5.pdf" target="_blank">5 Birthday match</a>, <a href="m/chap7.pdf" target="_blank">6 Bear and woodcutter</a>, <a href="m/chap9.pdf" target="_blank">7 Function</a>, <a href="m/chap11.pdf" target="_blank">8 List</a></p>
+
+<hr />
+<hr />
+            </div><a class="u-url" href="/p/2018/12/13/gcc.html" hidden></a>
+        </article>
+    </div>
+</main>
+<script src="rainbow.min.js"></script>
+</body>
+</html>

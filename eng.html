@@ -1,0 +1,125 @@
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#" lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, user-scalable=0">
+<meta name="description" content="보고싶어 - 상현이는 수지가,">
+<meta name="keywords" content="상현, 수지">
+<!--<meta name="google" content="notranslate">-->
+
+<base href="http://보고싶어.com/">
+
+<link rel="shortcut icon" href="./static/logo.jpg" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="./static/logo.jpg">
+<title>보고싶어</title>
+<meta property="og:title" content="보고싶어">
+<meta property="og:url" content="http://보고싶어.com/">
+<meta property="og:image" content="./static/logo.jpg">
+<meta property="og:description" content="보고싶어 - 상현이는 수지가,">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story|Sunflower:300" rel="stylesheet">
+<link href="./static/stypr.css?v=307" rel="stylesheet" type="text/css">
+<style>
+#day {
+    padding-left: 3pt;
+    margin-bottom: 0pt;
+    font-size: 16pt;
+    font-weight: 500;
+}
+.neck {width:36px !important; height:36px !important}
+.container .achievement table .year{width:63px !important}
+</style>
+</head>
+<body>
+	<div class="header_bar"></div>
+	<header>
+		<div class="name"><span class="last">상현이는 수지가 </span> <span class="first">보고싶어</span></div>
+		<!--<div class="job">아직도 공사 중입니다</div>-->
+		<!--<div class="info">-->
+			<!-- Icons by W3C Creation Lab -->
+			<!--<img src="./static/github.png" alt="github"> <a href="https://github.com/stypr/">stypr</a> &emsp;-->
+			<!--<img src="./static/email.png" alt="email"> <a href="mailto:me@leunpark.com?body=%28Use%20https%3A//keybase.io/leunpark/key.asc%20for%20confidential%20messages.%29">me@leunpark.com</a>&thinsp;
+			&lsaquo;<a href="https://keybase.io/leunpark/key.asc">PGP</a>&rsaquo; &emsp;-->
+			<!--<img src="./static/ctf.png" alt="ctftime"> <a href="https://ctf.stypr.com/"> stypr</a> &emsp;-->
+			<!--<img src="/static/img/mobile.png" alt="mobile"> <a href="tel:+821098011763">+82&ensp;10&ensp;9801&ensp;7763</a>-->
+		<!-- </div>-->
+		<div class="neck"></div>
+	</header>
+	<div class="wrapper">
+		<div class="container">
+			<div class="experience" id="mil">
+				<h1>군대<sup><a href="https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%9C%A1%EA%B5%B0">?</a></sup> <span id="went">갔어요</span> <span id="day"></span></h1>
+				<table>
+					<tbody><tr>
+						<td>
+							<div class="progress-container">
+								<div id="p" class="progressbar" style="width:0%; font-size:8pt; font-family:Consolas; line-height:15px;">&nbsp;0%</div>
+							</div>
+							<p class="progress-status">2018-02-05</p>
+							<p class="progress-status right"><b>2019-10-06</b></p>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<div class="education">
+				<h1><span id="q"></span>일째에요</h1>
+				<table>
+					<tbody><tr>
+						<td class="title">우리가 사귄 지</td>
+						<td class="duration">May. 27, 2017 - PRESENT<span class="elapsed"><br></span></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="description">&raquo; 언제까지나 사귀고 있어요
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<div class="achievement">
+				<h1>우리의 추억들</h1>
+				<table>
+					<tbody>
+					<tr>
+						<td class="year">December</td>
+						<td class="description">trip to <b>Yeosu</b></td>
+						<td class="duration"></td>
+					</tr>
+					<tr>
+						<td class="year">Sep. 24-26</td>
+						<td class="description"><b>데이트</b> 했어요</td>
+						<td class="duration">Jeonju</td>
+					</tr>
+					<tr>
+						<td class="year">Aug. 18</td>
+						<td class="description"><b>수지 생일</b>에 함께 있어요</td>
+						<td class="duration">Seoul</td>
+					</tr>
+					<tr>
+						<td class="year">Jul. 15-17</td>
+						<td class="description"><b>데이트</b> 했어요</td>
+						<td class="duration">Daegu</td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+	</div>
+	<footer>
+		Last updated at October. 8 2018. Made by &hearts;. HTML5/CSS3 verified.
+		<br><br><a href="notes.html">developer's notes</a>
+	</footer>
+	<div class="footer_bar"></div>
+<script>
+var a=new Date("2/5/2018"),b=new Date("10/6/2019"),c=b-a,d=document.getElementById("p"),e=parseInt((new Date-new Date("5/27/2017"))/864e5)+1,f=document.getElementById("q");
+e>0&&(f.innerText=e); //,e>1&&(f.innerText+="s");
+
+///////// parseInt -> Math.ceil for D-day not D+
+var z = Math.ceil((b-new Date)/864e5);
+if (z>0) {
+	document.getElementById("day").innerText = 'D-' + z;
+} else {
+  if (z == 0) {document.getElementById("day").innerText = 'D-day';}
+	document.getElementById("went").innerText = "갔었어요";
+}
+
+//var j=document.getElementById("h"),h=parseInt((e-365)/30);h>0&&(j.innerText=h+"month"),h>1&&(j.innerText+="s");
+var g=setInterval(function(){var k=((new Date-a)/c*100).toFixed(8);k>=100&&(k=100,clearInterval(g)),d.style.width=k+"%",d.innerHTML="&nbsp;"+k+"%"})
+</script>
+</body></html>
