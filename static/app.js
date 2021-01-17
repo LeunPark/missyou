@@ -364,10 +364,10 @@ class App extends React.Component {
           <AppName>김상현 Explorer</AppName>
         </Title>
         <Intro>
-          이 사이트는 김상현 군과의 대화를 위한 GPT의 모델 데모 페이지입니다.
+          본 사이트는 김상현 군과의 자동 대화를 위해 만들어진 GPT 모델의 데모 페이지입니다.
           <br></br>
           <br></br>
-          최근 카카오톡 개인정보 유출 논란으로 인해 김상현 군의 대화 정보를 학습시키지 못했습니다
+          최근 카카오톡 개인정보 유출 논란으로 인해 김상현 군의 대화 정보를 학습시키지 못했습니다. (대외적으로)
         </Intro>
         <InputOutput>
           <InputOutputColumn>
@@ -379,12 +379,12 @@ class App extends React.Component {
               {this.state.loading ? (
                 <Loading>
                   <img src="/static/loading-bars.svg" width="25" height="25" />
-                  <LoadingText>Loading</LoadingText>
+                  <LoadingText>로딩 중</LoadingText>
                 </Loading>
               ) : null}
               {this.state.error ? (
                 <Error>
-                  ⚠️ Something went wrong. Please try again.
+                  ⚠️ 썸띵 웬트 r롱. 플리즈 트라이 어게인.
                 </Error>
               ) : null}
             </TextInputWrapper>
