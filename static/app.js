@@ -453,7 +453,7 @@ const Choices = ({output, logits, words, choose, probabilities}) => {
         <UndoButton onClick={goBack}>
           <Probability>←</Probability>
           {' '}
-          <Token>Undo</Token>
+          <Token>뒤로</Token>
         </UndoButton>
       ) : null}
     </ListItem>
