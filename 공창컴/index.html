@@ -81,7 +81,7 @@ line strings
 'HELLO WORLD'
 >>> "a b c d e f".split()
 ['a', 'b', 'c', 'd', 'e', 'f']
->>> print(*'HELLO')
+>>> print(*'HELLO') # Only on Python 3
 H E L L O</code></pre>
     <h3 id="List">리스트</h3>
     <pre><code data-language="python">>>> a = [0, 1, 2, 3, 4]
@@ -93,8 +93,8 @@ H E L L O</code></pre>
 [2, 3, 4]
 >>> a[:2]
 [0, 1]
->>> a[2:6]
-[2, 3, 4]
+>>> a[2:4]
+[2, 3]
 >>> 3 in a
 True
 >>> del a[0]
@@ -106,7 +106,7 @@ True
         <li><code>.remove(3)</code> Remove first item with value 3</li>
         <li><code>.pop()</code> Return the last item and delete it</li>
         <li><code>.count(2)</code> Count the number of times of 2 in list</li>
-        <li><code>.index(3)</code> Find the index of first 3 in list. Error if not found</li>
+        <li><code>.index(3)</code> Find the index of first 3 in list. Raise an error if not found</li>
         <li><code>.reverse()</code> Reverse the order of the list</li>
         <li><code>.extend([5, 6, 7])</code> Add the list</li>
     </ul>
@@ -123,7 +123,7 @@ True
 
     <h3 id="Bayesian">Bayesian Approach</h3>
     <p>Bayes' theorem $$ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}, $$ where \(H, E\) stand for any <em>hypothesis</em> and the evidence, respectively.</p>
-    <p>Determining the best classifier with generalized is significant.</p>
+    <p>Determining the best classifier with generalized is important.</p>
 
     <h3 id="Perceptron">⭐Perceptron</h3>
     <p>Decision Rule for Linear Classifier $$ d(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b, $$ where \(\mathbf{w}\) is the initial weight vector and \(b\) is the bias.
@@ -137,8 +137,8 @@ True
         <li>Update Neural Network weights $$ \mathbf{w}_i \longleftarrow  \mathbf{w}_i + \alpha \delta_k \mathbf{x}_i^k $$</li>
     </ol>
     <p><strong>The learning rate \(\alpha\)</strong> <br>
-        \(\alpha\) is too small: May converge slowly and need a lot of training data <br>
-        \(\alpha\) is too large: May change \(\mathbf{w}\) too quickly and spend a long time oscillating around the minimum</p>
+        is too small: May converge slowly and need a lot of training data <br>
+        is too large: May change \(\mathbf{w}\) too quickly and spend a long time oscillating around the minimum</p>
 
     <h3 id="Etc">기타</h3>
     <p>ASCII Art: 아스키 코드만을 사용한 그림으로 텍스트 아트, 문자그림으로도 불린다.</p>
